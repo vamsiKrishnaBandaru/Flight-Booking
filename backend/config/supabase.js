@@ -1,19 +1,22 @@
 const { createClient } = require('@supabase/supabase-js')
 require('dotenv').config()
 
-const supabaseUrl = process.env.SUPABASE_URL || 'https://wqvntnuxozeeavhfpiad.supabase.co'
-const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || 'your-anon-key'
+const supabaseUrl = process.env.SUPABASE_URL
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('Missing Supabase environment variables')
-  process.exit(1)
+if (!supabaseUrl || !supabaseServiceKey) {
+  console.error('Missing Supabase URL or Service Role Key in environment variables.')
+  // In a real production environment, you might want to exit the process
+  // or handle this more gracefully. For now, we'll log and continue,
+  // but Supabase operations will fail.
 }
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+// Initialize the Supabase client with the service role key
+const supabase = createClient(supabaseUrl, supabaseServiceKey, {
   auth: {
     autoRefreshToken: false,
     persistSession: false
   }
 })
 
-module.exports = { supabase, supabaseUrl, supabaseAnonKey } 
+module.exports = { supabase } 
