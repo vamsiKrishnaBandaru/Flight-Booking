@@ -3,14 +3,8 @@ const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 // Helper function to make API requests
 const apiRequest = async (endpoint, options = {}) => {
-  const baseUrl = API_BASE_URL || 'http://localhost:3000';
-  
-  // Remove trailing slash from baseUrl and leading slash from endpoint
-  const cleanBaseUrl = baseUrl.replace(/\/$/, '');
-  const cleanEndpoint = endpoint.replace(/^\//, '');
-  
-  // Construct the full URL
-  const url = new URL(cleanEndpoint, `${cleanBaseUrl}/`);
+  const baseUrl = (API_BASE_URL || 'http://localhost:3000').replace(/\/$/, '');
+  const url = new URL(endpoint, baseUrl);
 
   const config = {
     headers: {
@@ -92,6 +86,7 @@ export const flightApi = {
 export const airportApi = {
   // Get all airports
   getAll: async () => {
+    // Hardcoding the full path to be absolutely sure
     return apiRequest('/api/airports');
   },
 };
