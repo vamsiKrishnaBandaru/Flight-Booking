@@ -4,7 +4,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL;
 // Helper function to make API requests
 const apiRequest = async (endpoint, options = {}) => {
   const baseUrl = (API_BASE_URL || 'http://localhost:3000').replace(/\/$/, '');
-  const url = new URL(endpoint, `${baseUrl}/api`);
+  const url = new URL(endpoint, baseUrl);
 
   const config = {
     headers: {
@@ -35,7 +35,7 @@ const apiRequest = async (endpoint, options = {}) => {
 export const bookingApi = {
   // Create a new booking
   create: async (bookingData) => {
-    return apiRequest('/bookings', {
+    return apiRequest('/api/bookings', {
       method: 'POST',
       body: bookingData,
     });
@@ -43,17 +43,17 @@ export const bookingApi = {
 
   // Get booking by ID
   getById: async (bookingId) => {
-    return apiRequest(`/bookings/${bookingId}`);
+    return apiRequest(`/api/bookings/${bookingId}`);
   },
 
   // Get bookings by user ID
   getByUserId: async (userId) => {
-    return apiRequest(`/bookings/user/${userId}`);
+    return apiRequest(`/api/bookings/user/${userId}`);
   },
 
   // Cancel booking
   cancel: async (bookingId, userId) => {
-    return apiRequest(`/bookings/${bookingId}`, {
+    return apiRequest(`/api/bookings/${bookingId}`, {
       method: 'DELETE',
       body: { userId },
     });
@@ -61,7 +61,7 @@ export const bookingApi = {
 
   // Update booking
   update: async (bookingId, bookingData, userId) => {
-    return apiRequest(`/bookings/${bookingId}`, {
+    return apiRequest(`/api/bookings/${bookingId}`, {
       method: 'PUT',
       body: { ...bookingData, userId },
     });
@@ -73,12 +73,12 @@ export const flightApi = {
   // Search flights
   search: async (searchParams) => {
     const queryString = new URLSearchParams(searchParams).toString();
-    return apiRequest(`/flights/search?${queryString}`);
+    return apiRequest(`/api/flights/search?${queryString}`);
   },
 
   // Get flight by ID
   getById: async (flightId) => {
-    return apiRequest(`/flights/${flightId}`);
+    return apiRequest(`/api/flights/${flightId}`);
   },
 };
 
@@ -86,6 +86,6 @@ export const flightApi = {
 export const airportApi = {
   // Get all airports
   getAll: async () => {
-    return apiRequest('/airports');
+    return apiRequest('/api/airports');
   },
 };
