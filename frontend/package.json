@@ -36,5 +36,6 @@
     "eslint-plugin-react-refresh": "^0.4.4",
     "typescript": "^5.8.3",
     "vite": "^4.5.0"
-  }
+  },
+  "cache-buster": "2024-07-13-23-30"
 }
