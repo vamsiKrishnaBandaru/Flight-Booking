@@ -4,7 +4,14 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const createSupabaseClient = require('./middleware/supabaseClient');
 
+const airportRoutes = require('./routes/airportRoutes');
+
 const app = express();
+
+// Health check endpoint for Render
+app.get('/healthz', (req, res) => {
+  res.status(200).send('OK');
+});
 
 // Middleware
 app.use(helmet());
@@ -18,7 +25,6 @@ app.use(createSupabaseClient); // Apply Supabase client middleware to all routes
 const authRoutes = require('./routes/authRoutes');
 const flightRoutes = require('./routes/flightRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
-const airportRoutes = require('./routes/airportRoutes');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/flights', flightRoutes);
