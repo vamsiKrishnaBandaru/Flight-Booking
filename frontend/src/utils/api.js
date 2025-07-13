@@ -1,9 +1,9 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 // Helper function to make API requests
 const apiRequest = async (endpoint, options = {}) => {
-  // Ensure there are no double slashes
-  const url = `${API_BASE_URL.replace(/\/$/, '')}/${endpoint.replace(/^\//, '')}`;
+  // Always prefix the endpoint with /api to ensure correctness
+  const url = `${API_BASE_URL}/api${endpoint}`;
   const config = {
     headers: {
       'Content-Type': 'application/json',
