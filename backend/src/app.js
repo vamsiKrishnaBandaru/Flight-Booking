@@ -3,6 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const createSupabaseClient = require('./middleware/supabaseClient');
+const errorHandler = require('./middleware/errorHandler'); // Import the error handler
 
 const airportRoutes = require('./routes/airportRoutes');
 
@@ -34,12 +35,6 @@ app.use('/api/airports', airportRoutes);
 // Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
-});
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  // In a real production app, you'd use a robust logger like Winston or Pino
-  process.exit(1);
 });
 
 // 404 handler
