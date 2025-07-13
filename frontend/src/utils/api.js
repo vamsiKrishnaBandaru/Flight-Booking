@@ -1,11 +1,16 @@
-// Forcing a new build to bypass Vercel's cache.
 // Last attempt to fix the URL construction. Using the robust URL constructor.
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 // Helper function to make API requests
 const apiRequest = async (endpoint, options = {}) => {
   const baseUrl = API_BASE_URL || 'http://localhost:3000';
-  const url = new URL(endpoint, baseUrl); // Use the robust URL constructor
+  
+  // Remove trailing slash from baseUrl and leading slash from endpoint
+  const cleanBaseUrl = baseUrl.replace(/\/$/, '');
+  const cleanEndpoint = endpoint.replace(/^\//, '');
+  
+  // Construct the full URL
+  const url = new URL(cleanEndpoint, `${cleanBaseUrl}/`);
 
   const config = {
     headers: {
