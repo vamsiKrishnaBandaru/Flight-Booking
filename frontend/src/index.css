@@ -1,0 +1,14 @@
+/* Clean CSS for Material-UI */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #EFF7FB; /* Consistent background color */
+}
+
+/* Other global styles can go here */
