@@ -1,3 +1,4 @@
+// Forcing a new build to bypass Vercel's cache.
 // Last attempt to fix the URL construction. Using the robust URL constructor.
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
