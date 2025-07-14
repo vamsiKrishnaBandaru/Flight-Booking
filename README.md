@@ -49,7 +49,6 @@ skybook/
 - JWT authentication
 - RESTful API design
 - **Database:** PostgreSQL
-- **API:** RESTful, documented at `http://localhost:3001/api-docs` (once implemented)
 
 ### System Requirements
 
@@ -183,20 +182,18 @@ docker-compose up --build
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Team
+## 👥 Author
 
 - **Full Stack Developer**: Vamsi Krishna
-- **Project**: Thena Company Interview Assessment
 
 ## 🙏 Acknowledgments
 
-- Built for Thena Company technical assessment
 - Inspired by modern flight booking platforms
 - Uses best practices from React and Node.js communities
 
 ---
 
-<p align="center">Made with ❤️ for Thena Company</p> 
+<p align="center">Made with ❤️ by Vamsi Krishna</p> 
 
 ### **Prerequisites**
 
