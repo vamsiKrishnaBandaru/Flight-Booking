@@ -70,7 +70,7 @@ skybook/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/skybook.git
+   git clone https://github.com/<your-github-username>/skybook.git
    cd skybook
    ```
 
@@ -185,7 +185,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Team
 
-- **Full Stack Developer**: [Your Name]
+- **Full Stack Developer**: Vamsi Krishna
 - **Project**: Thena Company Interview Assessment
 
 ## 🙏 Acknowledgments
