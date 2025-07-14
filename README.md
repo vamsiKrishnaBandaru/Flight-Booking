@@ -52,7 +52,6 @@ skybook/
 
 ### System Requirements
 
-**DevOps:**
 - Environment-based configuration
 - Automated testing setup
 
