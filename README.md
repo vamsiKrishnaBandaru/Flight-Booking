@@ -53,7 +53,6 @@ skybook/
 ### System Requirements
 
 **DevOps:**
-- Docker ready
 - Environment-based configuration
 - Automated testing setup
 
@@ -153,13 +152,6 @@ cd frontend && npm run build
 
 # Start production server
 cd backend && npm run start:prod
-```
-
-### Docker Deployment
-
-```bash
-# Build and run with Docker
-docker-compose up --build
 ```
 
 ## 📊 Performance Optimizations
